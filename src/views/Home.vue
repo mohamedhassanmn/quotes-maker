@@ -6,7 +6,7 @@
     <br/>
     <button @click="create"> create quote </button>
     <Display v-if='quotes.length > 0' >
-      <span @click="deleting" v-for="value in quotes" :key="value" class="styledText">{{value}}</span>
+      <span  v-for="(value,i) in quotes" :key="value" @click="deleting(i)" class="styledText">{{value}}</span>
     </Display>
     <div class="info">Info :  Click on the quotes to delete it</div>
   </div>
@@ -37,9 +37,8 @@ export default {
         alert("delete some quotes")
       }
     },
-    deleting(e){
-      let text=e.target.textContent
-      this.quotes=this.quotes.filter(e=>e!=text)
+    deleting(index){
+      this.quotes=this.quotes.filter((e,i)=>i!=index)
       this.length=this.quotes.length*10
     }
   },

@@ -4,10 +4,11 @@
     <h3>Quotes</h3>
     <textarea v-model="text" />
     <br/>
-    <button @click="create"> create quote</button>
+    <button @click="create"> create quote </button>
     <Display v-if='quotes.length > 0' >
       <span @click="deleting" v-for="value in quotes" :key="value" class="styledText">{{value}}</span>
     </Display>
+    <div class="info">Info :  Click on the quotes to delete it</div>
   </div>
 </template>
 
@@ -77,5 +78,9 @@ export default {
     margin:20px;
     padding:5px;
     font-size: 17px;
+  }
+  .info{
+    width:100%;
+    padding: auto 20%;
   }
 </style>
